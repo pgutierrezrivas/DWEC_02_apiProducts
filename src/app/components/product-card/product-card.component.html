@@ -1,0 +1,15 @@
+<div class="card h-100">
+    <!-- imagen del producto -->
+    <div class="d-flex justify-content-center align-items-center overflow-hidden" style="height: 300px;">
+        <img [src]="myProduct.image" [alt]="myProduct.name" class="img-fluid h-100 object-fit-contain pt-1">
+    </div>
+    <!-- contenido del producto -->
+    <div class="card-body">
+      <h6 class="card-title mb-3 text-uppercase">{{myProduct.name}}</h6>
+      <p class="card-text fw-bold">{{myProduct.price}} €</p>
+      <p class="card-text "><small class="text-body-secondary">{{myProduct.description}}</small></p>
+      <p class="card-text"><small class="text-body-secondary" style="font-size:x-small;">Ref. {{myProduct._id}}</small></p>
+    </div>
+    <!-- boton eliminar producto -->
+    <button class="btn btn-outline-danger m-3 fw-semibold" (click)="deleteProduct(myProduct)">Eliminar</button>
+</div>
