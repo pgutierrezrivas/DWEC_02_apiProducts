@@ -38,4 +38,11 @@ export class ProductService {
     return this.arrProducts;
   }
 
+  //añadimos los nuevos productos creados al array
+  addProduct(product: IProduct): void {
+    this.arrProducts.push(product);
+    //muestro el array de productos incluyendo el nuevo
+    console.log('Productos actuales:', this.arrProducts);
+  }
+
 }

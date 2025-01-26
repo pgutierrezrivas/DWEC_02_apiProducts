@@ -16,7 +16,6 @@ export class ProductsListComponent {
 
   ngOnInit(): void {
     this.arrProducts = this.productService.getAllProducts(); //llamo al servicio
-    console.log(this.arrProducts); //y pinto los datos por pantalla
   }
 
 }
