@@ -1,21 +1,26 @@
 <!-- formulario dentro de un modal https://getbootstrap.com/docs/4.0/components/modal/ -->
 <!-- button trigger modal -->
-<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button type="button" class="btn btn-dark px-3" data-bs-toggle="modal" 
+data-bs-target="#staticBackdrop">
     <small>Alta nuevo producto</small>
 </button>
 <!-- modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" 
+data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header border-end-0">
-                <h6 class="modal-title text-uppercase" id="staticBackdropLabel">Formulario alta producto</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h6 class="modal-title text-uppercase" id="staticBackdropLabel">
+                    Formulario alta producto</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" 
+                aria-label="Close"></button>
             </div>
             <div class="modal-body" style="font-size:small;">
                 <form [formGroup]="myProductForm" (ngSubmit)="getDataForm()">
+                    <!-- apartado nombre -->
                     <div class="form-group row my-2">
-                        <label for="name" class="col-sm-2 col-form-label">Nombre:</label>
+                        <label for="name" class="col-sm-2 col-form-label">
+                            Nombre:</label>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-9">
                             <input type="text" class="form-control form-control-sm" id="name" 
@@ -25,54 +30,64 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="text-danger">Campo requerido</div>
                         }
                         @if(checkControl('name', 'minlength')){
-                            <div class="text-danger">El nombre debe tener al menos 3 caracteres</div>
+                            <div class="text-danger">El nombre debe tener al menos 
+                                3 caracteres</div>
                         }
                         @if(checkControl('name', 'maxlength')){
-                            <div class="text-danger">El nombre debe tener 50 caracteres como máximo</div>
+                            <div class="text-danger">El nombre debe tener 50 caracteres 
+                                como máximo</div>
                         }
                     </div>
+                    <!-- apartado descripcion -->
                     <div class="form-group row my-2">
-                        <label for="description" class="col-form-label col-sm-2">Descripción:</label>
+                        <label for="description" class="col-form-label col-sm-2">
+                            Descripción:</label>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="description" 
-                            name="description" placeholder="Introduce la descripción" 
-                            formControlName="description">
+                            <input type="text" class="form-control form-control-sm" 
+                            id="description" name="description" placeholder="Introduce la descripción" formControlName="description">
                         </div>
                         @if(checkControl('description', 'required')){
                             <div class="text-danger">Campo requerido</div>
                         }
                         @if(checkControl('description', 'minlength')){
-                            <div class="text-danger">El nombre debe tener al menos 10 caracteres</div>
+                            <div class="text-danger">El nombre debe tener al menos 10 
+                                caracteres</div>
                         }
                         @if(checkControl('description', 'maxlength')){
-                            <div class="text-danger">La descripción debe tener 100 caracteres 
-                                como máximo</div>
+                            <div class="text-danger">La descripción debe tener 100 
+                                caracteres como máximo</div>
                         }
                     </div>
+                    <!-- apartado precio -->
                     <div class="form-group row my-2">
                         <label for="price" class="col-form-label col-sm-2">Precio:</label>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control form-control-sm" id="price" 
-                            name="price" placeholder="Introduce el precio" formControlName="price">
+                            <input type="number" class="form-control form-control-sm" 
+                            id="price" name="price" placeholder="Introduce el precio" 
+                            formControlName="price">
                         </div>
                         @if(checkControl('price', 'required')){
                             <div class="text-danger">Campo requerido</div>
                         }
                         @if(checkControl('price', 'min')){
-                            <div class="text-danger">El precio debe ser un número positivo</div>
+                            <div class="text-danger">El precio debe ser un número 
+                                positivo</div>
                         }
                         @if(checkControl('price', 'pattern')){
-                            <div class="text-danger">Caracteres introducidos no válidos</div>
+                            <div class="text-danger">Caracteres introducidos no 
+                                válidos</div>
                         }
                     </div>
+                    <!-- apartado categoria -->
                     <div class="form-group row my-2">
-                        <label for="category" class="col-form-label col-sm-2">Categoría:</label>
+                        <label for="category" class="col-form-label col-sm-2">
+                            Categoría:</label>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-9">
-                            <select class="form-select form-select-sm required" name="category" 
-                            id="category" formControlName="category">
+                            <select class="form-select form-select-sm required" 
+                            name="category" id="category" formControlName="category">
                                 <option value="" selected disabled>Elige categoría</option>
                                 <option value="mujer">Mujer</option>
                                 <option value="hombre">Hombre</option>
@@ -83,6 +98,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="text-danger">Campo requerido</div>
                         }
                     </div>
+                    <!-- apartado imagen -->
                     <div class="form-group row my-2">
                         <label for="image" class="col-form-label col-sm-3">Imagen (URL):</label>
                         <div class="col-sm-9">
@@ -97,6 +113,7 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="text-danger">La URL introducida no es válida</div>
                         }
                     </div>
+                    <!-- apartado activo -->
                     <div class="form-group row my-2">
                         <div class="col-sm-3 mb-1">Producto activo:</div>
                         <div class="col-sm-9">
@@ -115,8 +132,9 @@ tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="text-danger">Campo requerido</div>
                         }
                     </div>
-                    <input type="submit" value="Enviar" class="btn btn-outline-primary my-2 
-                    fw-semibold px-4 border-2" style="font-size:small;" 
+                    <!-- boton submit formulario -->
+                    <input type="submit" value="Enviar" class="btn btn-primary my-2 
+                    fw-semibold px-4" style="font-size:small;" 
                     [disabled]="!myProductForm.valid">
                 </form>
             </div>

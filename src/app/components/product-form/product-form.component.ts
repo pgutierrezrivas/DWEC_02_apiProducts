@@ -12,7 +12,6 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductFormComponent {
 
-  arrProducts: IProduct[];
   myProductForm: FormGroup;
   productService = inject(ProductService); /**injecto el servicio para poder usar el 
   metodo añadir un producto (addProduct)*/
@@ -30,10 +29,8 @@ export class ProductFormComponent {
       category: new FormControl("", [Validators.required]),
       image: new FormControl(null, [Validators.required, 
         Validators.pattern('https?://.+')]),
-      active: new FormControl(null, [Validators.required]),
+      active: new FormControl(null, [Validators.required])
     }, [])
-
-    this.arrProducts = [];
   
   }
 

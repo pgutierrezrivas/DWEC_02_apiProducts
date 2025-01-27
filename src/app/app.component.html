@@ -4,7 +4,12 @@
   </header>
   <div class="body">
     <section class="container mt-3">
-      <app-product-form></app-product-form>
+      <nav class="navbar bg-primary-subtle d-flex justify-content-between">
+        <div class="d-flex gap-3">
+          <app-product-form></app-product-form>
+          <app-product-filter></app-product-filter>
+        </div>
+      </nav>      
     </section>
     <section class="container my-4">
       <app-products-list></app-products-list>
