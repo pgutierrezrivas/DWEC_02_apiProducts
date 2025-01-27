@@ -1,8 +1,16 @@
+<nav class="navbar bg-primary-subtle d-flex justify-content-between mb-3">
+    <div class="d-flex gap-3">
+      <app-product-form></app-product-form>
+      <app-product-filter (onFilterChange)="onFiltersChange($event)"></app-product-filter>
+    </div>
+</nav>
 <div class="row">
     @for (product of arrProducts; track product._id) {
-        <article class="col-sm-6 col-md-4 col-lg-3 mb-4">
-            <app-product-card [myProduct]="product"></app-product-card>
-        </article>
+        @if (product.visible) {
+            <article class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <app-product-card [myProduct]="product"></app-product-card>
+            </article>
+        }
     }
     @empty {
         <h2>No hay datos para mostrar</h2>

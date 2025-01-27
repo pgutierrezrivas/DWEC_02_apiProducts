@@ -9,6 +9,8 @@
       <p class="card-text fw-bold">{{myProduct.price}} €</p>
       <p class="card-text "><small class="text-body-secondary">{{myProduct.description}}</small></p>
       <p class="card-text"><small class="text-body-secondary" style="font-size:x-small;">Ref. {{myProduct._id}}</small></p>
+      <p class="card-text"><small class="text-body-secondary text-capitalize" style="font-size:small;"><em><strong>Categoría:</strong> {{myProduct.category}}</em></small></p>
+      <p class="card-text"><small class="text-body-secondary text-capitalize" style="font-size:small;"><em><strong>Activo:</strong> {{myProduct.active}}</em></small></p>
     </div>
     <!-- boton eliminar producto -->
     <button class="btn btn-outline-danger m-3 fw-semibold" (click)="deleteProduct(myProduct)"><small>Eliminar</small></button>

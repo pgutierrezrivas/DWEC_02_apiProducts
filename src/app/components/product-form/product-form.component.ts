@@ -29,22 +29,24 @@ export class ProductFormComponent {
       category: new FormControl("", [Validators.required]),
       image: new FormControl(null, [Validators.required, 
         Validators.pattern('https?://.+')]),
-      active: new FormControl(null, [Validators.required])
+      active: new FormControl(null, [Validators.required]),
+      visible: new FormControl(true, [])
     }, [])
   
   }
 
   //funcion reseteo del formulario
-  resetForm() {
+  resetForm(): void {
     this.myProductForm.reset(); //reinicio todos los campos del formulario
     this.myProductForm.get('_id')?.setValue(uuidv4()); //asigno un nuevo UUID al campo '_id' al resetear
     this.myProductForm.get('category')?.setValue(""); /**asigno de nuevo el valor "" al selector de categoria 
     para que muestre la opcion de 'Elegir categoria' del desplegable al resetear*/
+    this.myProductForm.get('visible')?.setValue(true);
   }
 
   /**funcion que NO RECIBE PARAMETROS y que se ejecuta en el submit donde recogemos la informacion 
   del formulario (genera objeto json)*/
-  getDataForm() {
+  getDataForm(): void {
     if (this.myProductForm.valid) {
       let newProduct: IProduct = this.myProductForm.value as IProduct;
       this.productService.addProduct(newProduct); //añado el producto a traves del servicio

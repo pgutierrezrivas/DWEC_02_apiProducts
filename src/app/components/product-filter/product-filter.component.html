@@ -1,92 +1,86 @@
-<!-- formulario dentro de un modal https://getbootstrap.com/docs/4.0/components/modal/ -->
-<!-- button trigger modal -->
-<button type="button" class="btn btn-dark px-3" data-bs-toggle="modal" 
-data-bs-target="#filterModal">
-    <small>Filtrar productos</small>
-</button>
-<!-- modal -->
-<div class="modal fade" id="filterModal" data-bs-backdrop="static" 
-data-bs-keyboard="false" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-end-0">
-                <h6 class="modal-title text-uppercase" id="filterModalLabel">
-                    Filtros de búsqueda</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" 
-                aria-label="Close"></button>
-            </div>
-            <div class="modal-body" style="font-size:small;">
-                <form #myFilterForm="ngForm" (ngSubmit)="getDataFilter(myFilterForm)">
-                    <!-- filtro nombre -->
-                    <div class="form-group row my-2">
-                        <label for="name" class="col-sm-3 col-form-label">
-                            Nombre:</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-sm" id="name" 
-                            name="name" placeholder="Introduce el nombre" ngModel>
-                        </div>
+<section class="d-flex gap-3">
+    <div>
+        <!-- formulario dentro de un modal https://getbootstrap.com/docs/4.0/components/modal/ -->
+        <!-- button trigger modal -->
+        <button type="button" class="btn btn-dark px-3" data-bs-toggle="modal" 
+        data-bs-target="#filterModal">
+            <small>Filtrar productos</small>
+        </button>
+        <!-- modal -->
+        <div class="modal fade" id="filterModal" data-bs-backdrop="static" 
+        data-bs-keyboard="false" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header border-end-0">
+                        <h6 class="modal-title text-uppercase" id="filterModalLabel">
+                            Filtros de búsqueda</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" 
+                        aria-label="Close"></button>
                     </div>
-                    <!-- filtro precio -->
-                    <div class="form-group row my-2">
-                        <label for="price" class="col-sm-3 col-form-label">
-                            Rango precio:</label>
-                        <div class="col-sm-9 d-flex gap-2">
-                            <input type="number" class="form-control form-control-sm" id="priceMin" 
-                            name="priceMin" placeholder="Precio mínimo" ngModel>
-                            <input type="number" class="form-control form-control-sm" id="priceMax" 
-                            name="priceMax" placeholder="Precio máximo" ngModel>
-                        </div>
+                    <div class="modal-body" style="font-size:small;">
+                        <form #myFilterForm="ngForm" (ngSubmit)="applyFilters(myFilterForm)">
+                            <!-- filtro nombre -->
+                            <div class="form-group row my-2">
+                                <label for="name" class="col-sm-3 col-form-label">
+                                    Nombre:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="name" 
+                                    name="name" placeholder="Introduce el nombre" ngModel>
+                                </div>
+                            </div>
+                            <!-- filtro precio -->
+                            <div class="form-group row my-2">
+                                <label for="price" class="col-sm-3 col-form-label">
+                                    Rango precio:</label>
+                                <div class="col-sm-9 d-flex gap-2">
+                                    <input type="number" class="form-control form-control-sm" id="priceMin" 
+                                    name="priceMin" placeholder="Precio mínimo" ngModel>
+                                    <input type="number" class="form-control form-control-sm" id="priceMax" 
+                                    name="priceMax" placeholder="Precio máximo" ngModel>
+                                </div>
+                            </div>
+                            <!-- filtro categoria -->
+                            <div class="form-group row my-2">
+                                <label for="category" class="col-form-label col-sm-3">
+                                    Categoría:</label>
+                                <div class="col-sm-9">
+                                    <select class="form-select form-select-sm required" 
+                                    name="category" id="category" ngModel>
+                                        <option value="" selected disabled>Elige categoría</option>
+                                        <option value="mujer">Mujer</option>
+                                        <option value="hombre">Hombre</option>
+                                        <option value="niño">Niño</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- filtro activo -->
+                            <div class="form-group row my-2">
+                                <div class="col-sm-3 mb-1">Estado:</div>
+                                <div class="col-sm-9">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" name="active" 
+                                        id="activeTrue" value="true" ngModel>
+                                        <label class="form-check-label" for="activeTrue">Activo</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" name="active" 
+                                        id="activeFalse" value="false" ngModel>
+                                        <label class="form-check-label" for="activeFalse">No activo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- boton submit formulario -->
+                            <input type="submit" value="Filtrar" class="btn btn-primary my-2 
+                            fw-semibold px-4" style="font-size:small;">
+                        </form>
                     </div>
-                    <!-- filtro categoria -->
-                    <div class="form-group row">
-                        <label for="catgory" class="col-sm-3 col-form-label">
-                            Categoría:</label>
-                        <div class="col-sm-9 py-2">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" 
-                                value="mujer" id="category">
-                                <label for="category" class="form-check-label">
-                                  Mujer
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" 
-                                value="hombre" id="category">
-                                <label for="category" class="form-check-label">
-                                  Hombre
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" 
-                                value="niño" id="category">
-                                <label for="category" class="form-check-label">
-                                  Niño
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- filtro activo -->
-                    <div class="form-group row my-2">
-                        <div class="col-sm-3 mb-1">Estado:</div>
-                        <div class="col-sm-9">
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" name="active" 
-                                id="activeTrue" value="true" ngModel>
-                                <label class="form-check-label" for="activeTrue">Activo</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" class="form-check-input" name="active" 
-                                id="activeFalse" value="false" ngModel>
-                                <label class="form-check-label" for="activeFalse">No activo</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- boton submit formulario -->
-                    <input type="submit" value="Filtrar" class="btn btn-primary my-2 
-                    fw-semibold px-4" style="font-size:small;">
-                </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+    <div>
+        <button type="button" class="btn btn-dark px-3" (click)="clearFilters(myFilterForm)">
+          <small>Borrar Filtros</small>
+        </button>
+    </div>    
+</section>
