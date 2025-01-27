@@ -26,7 +26,7 @@ export class ProductsListComponent implements OnInit {
   //metodo que se ejecuta cuando los filtros cambian 
   onFiltersChange(filters: any): void {
     this.productService.filterProducts(filters);
-    alert('PRODUCTOS FILTRADOS');
+    alert('LISTADO ACTUALIZADO');
     console.log('Productos filtrados:', this.arrProducts);
   }
 
