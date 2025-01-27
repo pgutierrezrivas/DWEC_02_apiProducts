@@ -19,9 +19,8 @@ data-bs-keyboard="false" tabindex="-1" aria-labelledby="filterModalLabel" aria-h
                 <form #myFilterForm="ngForm" (ngSubmit)="getDataFilter(myFilterForm)">
                     <!-- filtro nombre -->
                     <div class="form-group row my-2">
-                        <label for="name" class="col-sm-2 col-form-label">
+                        <label for="name" class="col-sm-3 col-form-label">
                             Nombre:</label>
-                        <div class="col-sm-1"></div>
                         <div class="col-sm-9">
                             <input type="text" class="form-control form-control-sm" id="name" 
                             name="name" placeholder="Introduce el nombre" ngModel>
@@ -29,19 +28,19 @@ data-bs-keyboard="false" tabindex="-1" aria-labelledby="filterModalLabel" aria-h
                     </div>
                     <!-- filtro precio -->
                     <div class="form-group row my-2">
-                        <label for="name" class="col-sm-2 col-form-label">
-                            Precio:</label>
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control form-control-sm" id="price" 
-                            name="price" placeholder="Introduce el precio" ngModel>
+                        <label for="price" class="col-sm-3 col-form-label">
+                            Rango precio:</label>
+                        <div class="col-sm-9 d-flex gap-2">
+                            <input type="number" class="form-control form-control-sm" id="priceMin" 
+                            name="priceMin" placeholder="Precio mínimo" ngModel>
+                            <input type="number" class="form-control form-control-sm" id="priceMax" 
+                            name="priceMax" placeholder="Precio máximo" ngModel>
                         </div>
                     </div>
                     <!-- filtro categoria -->
                     <div class="form-group row">
-                        <label for="catgory" class="col-sm-2 col-form-label">
+                        <label for="catgory" class="col-sm-3 col-form-label">
                             Categoría:</label>
-                        <div class="col-sm-1"></div>
                         <div class="col-sm-9 py-2">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" 
@@ -68,7 +67,7 @@ data-bs-keyboard="false" tabindex="-1" aria-labelledby="filterModalLabel" aria-h
                     </div>
                     <!-- filtro activo -->
                     <div class="form-group row my-2">
-                        <div class="col-sm-3 mb-1">Producto activo:</div>
+                        <div class="col-sm-3 mb-1">Estado:</div>
                         <div class="col-sm-9">
                             <div class="form-check form-check-inline">
                                 <input type="radio" class="form-check-input" name="active" 

@@ -19,9 +19,8 @@ data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" ari
                 <form [formGroup]="myProductForm" (ngSubmit)="getDataForm()">
                     <!-- apartado nombre -->
                     <div class="form-group row my-2">
-                        <label for="name" class="col-sm-2 col-form-label">
+                        <label for="name" class="col-sm-3 col-form-label">
                             Nombre:</label>
-                        <div class="col-sm-1"></div>
                         <div class="col-sm-9">
                             <input type="text" class="form-control form-control-sm" id="name" 
                             name="name" placeholder="Introduce el nombre" formControlName="name">
@@ -40,9 +39,8 @@ data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" ari
                     </div>
                     <!-- apartado descripcion -->
                     <div class="form-group row my-2">
-                        <label for="description" class="col-form-label col-sm-2">
+                        <label for="description" class="col-form-label col-sm-3">
                             Descripción:</label>
-                        <div class="col-sm-1"></div>
                         <div class="col-sm-9">
                             <input type="text" class="form-control form-control-sm" 
                             id="description" name="description" placeholder="Introduce la descripción" formControlName="description">
@@ -61,8 +59,7 @@ data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" ari
                     </div>
                     <!-- apartado precio -->
                     <div class="form-group row my-2">
-                        <label for="price" class="col-form-label col-sm-2">Precio:</label>
-                        <div class="col-sm-1"></div>
+                        <label for="price" class="col-form-label col-sm-3">Precio:</label>
                         <div class="col-sm-9">
                             <input type="number" class="form-control form-control-sm" 
                             id="price" name="price" placeholder="Introduce el precio" 
@@ -82,9 +79,8 @@ data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" ari
                     </div>
                     <!-- apartado categoria -->
                     <div class="form-group row my-2">
-                        <label for="category" class="col-form-label col-sm-2">
+                        <label for="category" class="col-form-label col-sm-3">
                             Categoría:</label>
-                        <div class="col-sm-1"></div>
                         <div class="col-sm-9">
                             <select class="form-select form-select-sm required" 
                             name="category" id="category" formControlName="category">
